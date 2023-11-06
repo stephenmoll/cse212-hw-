@@ -69,7 +69,7 @@ public static class ArraysTester {
         int n = data.Count;
 
         // two separate lists for the right and left parts 
-        //in hindsite... could possibly have done the task with one list?
+        //in hindsight... could possibly have done the task with one list?
         List<int> rightPart = new List<int>();
         List<int> leftPart = new List<int>(); 
 
