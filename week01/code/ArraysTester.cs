@@ -38,9 +38,18 @@ public static class ArraysTester {
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+    // Create a list to store the multiples
+    List<double> multiplesList = new List<double>();
 
-        return new double[0]; // replace this return statement with your own
+    // Generate 'length' multiples of 'number' and add them to the list
+    for (int i = 1; i <= length; i++)
+    {
+        double multiple = number * i;
+        multiplesList.Add(multiple);
     }
+
+    // Convert the list to an array and return it
+    return multiplesList.ToArray();
     
     /// <summary>
     /// Rotate the 'data' to the right by the 'amount'.  For example, if the data is 
@@ -57,5 +66,27 @@ public static class ArraysTester {
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
+        int n = data.Count;
+
+        // two separate lists for the right and left parts
+        List<int> rightPart = new List<int>();
+        List<int> leftPart = new List<int>(); 
+
+        // Copies the elements to the right and left parts
+        for (int i = 0; i < n; i++)
+        {
+            if (i < n - amount)
+                leftPart.Add(data[i]);
+            else
+                rightPart.Add(data[i]);
+        }
+
+        // Clears list
+        data.Clear();
+
+        // Merges parts to perform the rotation
+        data.AddRange(rightPart);
+        data.AddRange(leftPart);
+        }
     }
 }
