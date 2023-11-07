@@ -50,7 +50,7 @@ public static class ArraysTester {
 
     // Convert the list to an array and return it
     return multiplesList.ToArray();
-    
+    }
     /// <summary>
     /// Rotate the 'data' to the right by the 'amount'.  For example, if the data is 
     /// <c>&lt;List&gt;{1, 2, 3, 4, 5, 6, 7, 8, 9}</c> and an amount is 3 then the list returned should be 
@@ -88,6 +88,6 @@ public static class ArraysTester {
         // Merges parts to perform the rotation
         data.AddRange(rightPart);
         data.AddRange(leftPart);
-        }
+        
     }
 }
