@@ -19,19 +19,33 @@ public static class Priority {
 
         // Test 1
         // Scenario: 
-        // Expected Result: 
+        // Expected Result: Expected to remove "Peter" 
         Console.WriteLine("Test 1");
 
-        // Defect(s) Found: 
+        // Defect(s) Found: It removed Bob istead of Peter. Has been fixed.
+        Console.WriteLine(priorityQueue);
+        priorityQueue.Enqueue("Stephen", 1);
+        priorityQueue.Enqueue("Bob", 2);
+        priorityQueue.Enqueue("Peter", 3);
+
+        Console.WriteLine($"{priorityQueue.Dequeue()} has been removed from the list.");
+        Console.WriteLine(priorityQueue);
 
         Console.WriteLine("---------");
 
         // Test 2
         // Scenario: 
-        // Expected Result: 
+        // Expected Result: Should remove "Bob" first, the highest priority item before any other items of the same value are found.
         Console.WriteLine("Test 2");
 
-        // Defect(s) Found: 
+        Console.WriteLine(priorityQueue);
+        priorityQueue.Enqueue("Stephen", 1);
+        priorityQueue.Enqueue("Bob", 2);
+        priorityQueue.Enqueue("Peter", 2);
+
+        Console.WriteLine($"{priorityQueue.Dequeue()} has been removed from the list.");
+        Console.WriteLine(priorityQueue); 
+        // Defect(s) Found: It says it removed Peter(Should have been Bob), also didn't actually remove anyone from the list.
 
         Console.WriteLine("---------");
 

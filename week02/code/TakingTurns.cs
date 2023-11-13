@@ -25,7 +25,7 @@ public static class TakingTurns {
         // Console.WriteLine(players);    // This can be un-commented out for debug help
         while (players.Length > 0)
             players.GetNextPerson();
-        // Defect(s) Found: 
+        // Defect(s) Found: wrong order
 
         Console.WriteLine("---------");
 
@@ -48,7 +48,7 @@ public static class TakingTurns {
         while (players.Length > 0)
             players.GetNextPerson();
 
-        // Defect(s) Found: 
+        // Defect(s) Found: all good
 
         Console.WriteLine("---------");
 
@@ -66,7 +66,7 @@ public static class TakingTurns {
             players.GetNextPerson();
             // Console.WriteLine(players);
         }
-        // Defect(s) Found: 
+        // Defect(s) Found: turns below 0 where not requed.
 
         Console.WriteLine("---------");
 
@@ -76,6 +76,6 @@ public static class TakingTurns {
         Console.WriteLine("Test 4");
         players = new TakingTurnsQueue();
         players.GetNextPerson();
-        // Defect(s) Found:
+        // Defect(s) Found: all good
     }
 }

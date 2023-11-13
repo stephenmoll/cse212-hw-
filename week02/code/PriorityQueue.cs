@@ -24,26 +24,28 @@ public class PriorityQueue {
     }
 
     public String Dequeue() {
-        if (_queue.Count == 0) // Verify the queue is not empty
-        {
-            Console.WriteLine("The queue is empty.");
-            return null;
-        }
-
-        // Find the index of the item with the highest priority to remove
-        var highPriorityIndex = 0;
-        for (int index = 1; index < _queue.Count - 1; index++) {
-            if (_queue[index].Priority >= _queue[highPriorityIndex].Priority)
-                highPriorityIndex = index;
-        }
-
-        // Remove and return the item with the highest priority
-        var value = _queue[highPriorityIndex].Value;
-        return value;
+    if (_queue.Count == 0) // Verify the queue is not empty
+    {
+        Console.WriteLine("The queue is empty.");
+        return null;
     }
 
-    public override string ToString() {
-        return $"[{string.Join(", ", _queue)}]";
+    // Find the index of the item with the highest priority to remove
+    var highPriorityIndex = 0;
+    for (int index = 1; index < _queue.Count; index++)
+    {
+        if (_queue[index].Priority > _queue[highPriorityIndex].Priority ||
+            (_queue[index].Priority == _queue[highPriorityIndex].Priority && index < highPriorityIndex))
+        {
+            // If the current element has higher priority or has the same priority but comes before in the queue, update the highPriorityIndex
+            highPriorityIndex = index;
+        }
+    }
+
+    // Remove and return the item with the highest priority
+    var value = _queue[highPriorityIndex].Value;
+    _queue.RemoveAt(highPriorityIndex);
+    return value;
     }
 }
 
