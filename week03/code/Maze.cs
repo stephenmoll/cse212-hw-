@@ -28,17 +28,30 @@ public class Maze {
     /// Check to see if you can move left.  If you can, then move.  If you
     /// can't move, then display "Can't go that way!"
     /// </summary>
-    public void MoveLeft() {
-        // FILL IN CODE
-    }
+        public void MoveLeft() {
+            // FILL IN CODE
+            if (_mazeMap.TryGetValue((_currX - 1, _currY), out var directions) && directions[0]) {
+                _currX--;
+                Console.WriteLine("Moved left.");
+            } else {
+                Console.WriteLine("Can't go that way!");
+            }
+        }
+    
 
     /// <summary>
     /// Check to see if you can move right.  If you can, then move.  If you
     /// can't move, then display "Can't go that way!"
     /// </summary>
-    public void MoveRight() {
-        // FILL IN CODE
-    }
+        public void MoveRight() {
+            // FILL IN CODE
+            if (_mazeMap.TryGetValue((_currX + 1, _currY), out var directions) && directions[1]) {
+                _currX++;
+                Console.WriteLine("Moved right.");
+            } else {
+                Console.WriteLine("Can't go that way!");
+            }
+        }
 
     /// <summary>
     /// Check to see if you can move up.  If you can, then move.  If you
@@ -46,6 +59,14 @@ public class Maze {
     /// </summary>
     public void MoveUp() {
         // FILL IN CODE
+        if (_mazeMap.TryGetValue((_currX, _currY - 1), out var directions) && directions[2]) {
+            _currY--;
+            Console.WriteLine("Moved up.");
+        } 
+        else {
+            Console.WriteLine("Can't go that way!");
+        }
+    
     }
 
     /// <summary>
@@ -54,6 +75,12 @@ public class Maze {
     /// </summary>
     public void MoveDown() {
         // FILL IN CODE
+        if (_mazeMap.TryGetValue((_currX, _currY + 1), out var directions) && directions[3]) {
+            _currY++;
+            Console.WriteLine("Moved down.");
+        } else {
+            Console.WriteLine("Can't go that way!");
+        }
     }
 
     public void ShowStatus() {
