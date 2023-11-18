@@ -199,13 +199,22 @@ public static class SetsAndMapsTester {
                 letterCount1[x] = 1;
             }
         }
-            foreach (char x in word2) {
+        foreach (char x in word2) {
             if (letterCount2.ContainsKey(x)) {
                 letterCount2[x]++;
             } else {
-                letterCount2[x] = 1;
+            letterCount2[x] = 1;
             }
-    }
+        }
+        if (letterCount1.Count != letterCount2.Count) {
+            return false;
+        }
+        foreach (var i in letterCount1) {
+            if (!letterCount2.TryGetValue(i.Key, out var value) || i.Value != value) {
+                return false;
+            }
+        }    
+    }    
 
     /// <summary>
     /// Sets up the maze dictionary for problem 4
