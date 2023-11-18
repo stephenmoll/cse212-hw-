@@ -213,7 +213,8 @@ public static class SetsAndMapsTester {
             if (!letterCount2.TryGetValue(i.Key, out var value) || i.Value != value) {
                 return false;
             }
-        }    
+        }
+        return true;    
     }    
 
     /// <summary>
