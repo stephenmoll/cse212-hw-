@@ -111,7 +111,20 @@ public static class SetsAndMapsTester {
         // To display the pair correctly use something like:
         // Console.WriteLine($"{word} & {pair}");
         // Each pair of words should displayed on its own line.
+        HashSet<string> wordSet = new HashSet<string>();
+
+        foreach (var word in words) {
+            
+            if (wordSet.Contains(new string(word.Reverse().ToArray())) && word != new string(word.Reverse().ToArray())) {
+                Console.WriteLine($"{word} & {new string(word.Reverse().ToArray())}");
+            } else {
+         
+                wordSet.Add(word);
+            }
+        }
     }
+
+    
 
     /// <summary>
     /// Read a census file and summarize the degrees (education)
@@ -132,6 +145,16 @@ public static class SetsAndMapsTester {
         foreach (var line in File.ReadLines(filename)) {
             var fields = line.Split(",");
             // Todo Problem 2 - ADD YOUR CODE HERE
+            if (fields.Length > 3) {
+                var degree = fields[3].Trim();
+
+                // Updating the count in the dictionary
+                if (degrees.ContainsKey(degree)) {
+                    degrees[degree]++;
+                } else {
+                    degrees[degree] = 1;
+                }
+            }
         }
 
         return degrees;
@@ -158,7 +181,30 @@ public static class SetsAndMapsTester {
     /// #############
     private static bool IsAnagram(string word1, string word2) {
         // Todo Problem 3 - ADD YOUR CODE HERE
-        return false;
+        
+        Dictionary<char, int> letterCount1 = new Dictionary<char, int>();
+        Dictionary<char, int> letterCount2 = new Dictionary<char, int>();
+        
+        word1 = word1.Replace(" ", "").ToLower();
+        word2 = word2.Replace(" ", "").ToLower();
+
+        if (word1.Length != word2.Length) {
+            return false;
+        }
+        foreach (char x in word1) {
+            if (letterCount1.ContainsKey(x)) {
+                letterCount1[x]++;
+
+            } else {
+                letterCount1[x] = 1;
+            }
+        }
+            foreach (char x in word2) {
+            if (letterCount2.ContainsKey(x)) {
+                letterCount2[x]++;
+            } else {
+                letterCount2[x] = 1;
+            }
     }
 
     /// <summary>
