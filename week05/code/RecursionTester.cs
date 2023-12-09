@@ -289,6 +289,7 @@ public static class RecursionTester {
             var pattern2 = pattern[(index+1)..];
             var string0 = $"{pattern1}0{pattern2}";
             var string1 = $"{pattern1}1{pattern2}";
+            
             WildcardBinary(string0);
             WildcardBinary(string1);
         }    
